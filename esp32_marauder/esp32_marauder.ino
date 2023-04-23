@@ -35,6 +35,7 @@ https://www.online-utility.org/image/convert/to/XBM
 #include "CommandLine.h"
 #include "lang_var.h"
 #include "flipperLED.h"
+#include <M5StickCPlus.h>
 
 #ifdef HAS_SCREEN
   #include "Display.h"
@@ -103,6 +104,9 @@ void backlightOff() {
 
 void setup()
 {
+  M5.begin();
+  pinMode(M5_LED,OUTPUT);
+  digitalWrite(M5_LED,LOW);
   pinMode(FLASH_BUTTON, INPUT);
 
   #ifdef HAS_SCREEN
@@ -128,7 +132,7 @@ void setup()
 
   delay(10);
 
-  Serial.begin(115200);
+  Serial.begin(115200, SERIAL_8N1, 26, 0);
   
   //Serial.begin(115200);
 
