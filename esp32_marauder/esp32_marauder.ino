@@ -36,6 +36,7 @@ https://www.online-utility.org/image/convert/to/XBM
 #include "lang_var.h"
 #include "flipperLED.h"
 #include <M5StickCPlus.h>
+#include "flooper.h"
 
 #ifdef HAS_SCREEN
   #include "Display.h"
@@ -107,6 +108,7 @@ void setup()
   M5.begin();
   pinMode(M5_LED,OUTPUT);
   digitalWrite(M5_LED,LOW);
+  M5.Lcd.pushImage(0,0,flooperWidth,flooperHeight,flooper);
   pinMode(FLASH_BUTTON, INPUT);
 
   #ifdef HAS_SCREEN
@@ -131,7 +133,8 @@ void setup()
   digitalWrite(SD_CS, HIGH);
 
   delay(10);
-
+  
+  // stick serial 
   Serial.begin(115200, SERIAL_8N1, 26, 0);
   
   //Serial.begin(115200);
