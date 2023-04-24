@@ -5,10 +5,10 @@
   #define POLISH_POTATO
   
   //#define MARAUDER_MINI
-  #define MARAUDER_V4
+  //#define MARAUDER_V4
   //#define MARAUDER_V6
   //#define MARAUDER_KIT
-  //#define GENERIC_ESP32
+  #define GENERIC_ESP32
   //#define MARAUDER_FLIPPER
   //#define ESP32_LDDB
   //#define MARAUDER_DEV_BOARD_PRO
@@ -372,7 +372,7 @@
   #endif
 
   #ifdef MARAUDER_V4
-    //#define HAS_SCREEN
+    #define HAS_SCREEN
     #define HAS_BT
   #endif
 
@@ -388,6 +388,7 @@
 
   #ifdef GENERIC_ESP32
     #define HAS_BT
+    #define SD_CS 33
   #endif
 
   #ifndef HAS_SCREEN
